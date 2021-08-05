@@ -1,18 +1,21 @@
-﻿using NUnit.Framework;
+﻿using ApprovalTests;
+using ApprovalTests.Reporters;
+using NUnit.Framework;
 using System.Collections.Generic;
 
 namespace csharp
 {
+    [UseReporter(typeof(DiffReporter))]
     [TestFixture]
     public class GildedRoseTest
     {
         [Test]
-        public void foo()
+        public void GildedRose()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedRose app = new GildedRose(Items);
+            IList<Item> items = new List<Item>() { new Item() { Name = "foo", Quality = 1, SellIn = 2 } };
+            GildedRose app  = new GildedRose(items);
             app.UpdateQuality();
-            Assert.AreEqual("foo", Items[0].Name);
+            Approvals.Verify(items[0].Name);
         }
     }
 }
