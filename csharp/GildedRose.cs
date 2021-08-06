@@ -20,29 +20,33 @@ namespace csharp
 
         private static void RefactoredUpdateQuality(Item item)
         {
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            // changing the if statements to a switch case scenario
+            switch (item.Name)
             {
-                if (item.Quality > 0)
-                {
-                    if (item.Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        item.Quality = item.Quality - 1;
+               
+                case "Aged Brie":
 
-                        if (item.Name == "Conjured" && item.Quality > 0)
+                    if (item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+                    item.SellIn = item.SellIn - 1;
+
+                    if (item.SellIn < 0)
+                    {
+                        if (item.Quality < 50)
                         {
-                            item.Quality = item.Quality - 1;
+                            item.Quality = item.Quality + 1;
                         }
                     }
-                }
-            }
-            else
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
+                    break;
 
-                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                case "Backstage passes to a TAFKAL80ETC concert":
+
+                    if (item.Quality < 50)
                     {
+                        item.Quality = item.Quality + 1;
+
                         if (item.SellIn < 11)
                         {
                             if (item.Quality < 50)
@@ -59,46 +63,155 @@ namespace csharp
                             }
                         }
                     }
-                }
-            }
+                    item.SellIn = item.SellIn - 1;
 
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                item.SellIn = item.SellIn - 1;
-            }
-
-            if (item.SellIn < 0)
-            {
-                if (item.Name != "Aged Brie")
-                {
-                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                    {
-                        if (item.Quality > 0)
-                        {
-                            if (item.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                item.Quality = item.Quality - 1;
-
-                                if (item.Name == "Conjured" && item.Quality > 0)
-                                {
-                                    item.Quality = item.Quality - 1;
-                                }
-                            }
-                        }
-                    }
-                    else
+                    if (item.SellIn < 0)
                     {
                         item.Quality = item.Quality - item.Quality;
                     }
-                }
-                else
-                {
-                    if (item.Quality < 50)
+                    break;
+
+                case "Sulfuras, Hand of Ragnaros":
+
+                    item.SellIn = item.SellIn;
+                    item.Quality = item.Quality;
+                    break;
+
+                case "Conjured":
+
+                    if (item.Quality > 0)
                     {
-                        item.Quality = item.Quality + 1;
+                        if (item.Quality == 1)
+                        {
+                            item.Quality = item.Quality - 1;
+                        }
+                        else
+                        {
+                            item.Quality = item.Quality - 2;
+                        }
+
                     }
+
+                    item.SellIn = item.SellIn - 1;
+
+                    if (item.SellIn < 0)
+                    {
+                        if (item.Quality > 0)
+                        {
+                            if (item.Quality == 1)
+                            {
+                                item.Quality = item.Quality - 1;
+                            }
+                            else
+                            {
+                                item.Quality = item.Quality - 2;
+                            }
+                        }
+
+                    }
+                    break;
+
+                default:
+
+                    if (item.Quality > 0)
+                    {
+                        item.Quality = item.Quality - 1;
+                    }
+                    item.SellIn = item.SellIn - 1;
+
+                    if (item.SellIn < 0)
+                    {
+                        if (item.Quality > 0)
+                        {
+                            item.Quality = item.Quality - 1;
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+////////////////////////////              old code             \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*
+if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+{
+    if (item.Quality > 0)
+    {
+        if (item.Name != "Sulfuras, Hand of Ragnaros")
+        {
+            item.Quality = item.Quality - 1;
+
+            if (item.Name == "Conjured" && item.Quality > 0)
+            {
+                item.Quality = item.Quality - 1;
+            }
+        }
+    }
+}
+else
+{
+    if (item.Quality < 50)
+    {
+        item.Quality = item.Quality + 1;
+
+        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+        {
+            if (item.SellIn < 11)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+            }
+
+            if (item.SellIn < 6)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
                 }
             }
         }
     }
 }
+
+if (item.Name != "Sulfuras, Hand of Ragnaros")
+{
+    item.SellIn = item.SellIn - 1;
+}
+
+if (item.SellIn < 0)
+{
+    if (item.Name != "Aged Brie")
+    {
+        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+        {
+            if (item.Quality > 0)
+            {
+                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                {
+                    item.Quality = item.Quality - 1;
+
+                    if (item.Name == "Conjured" && item.Quality > 0)
+                    {
+                        item.Quality = item.Quality - 1;
+                    }
+                }
+            }
+        }
+        else
+        {
+            item.Quality = item.Quality - item.Quality;
+        }
+    }
+    else
+    {
+        if (item.Quality < 50)
+        {
+            item.Quality = item.Quality + 1;
+        }
+    }
+}
+*/
+
