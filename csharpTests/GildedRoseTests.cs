@@ -26,7 +26,7 @@ namespace csharp.Tests
         {
             CombinationApprovals.VerifyAllCombinations(
                 getStringItem,
-                new string[] { "foo", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"},
+                new string[] { "foo", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "Conjured"},
                 new int[] { 0, 10, 5, -1 },
                 new int[] { 0, 1, 49 }
                 );

@@ -46,3 +46,15 @@
 [Sulfuras, Hand of Ragnaros,-1,0] => Sulfuras, Hand of Ragnaros, -1, 0
 [Sulfuras, Hand of Ragnaros,-1,1] => Sulfuras, Hand of Ragnaros, -1, 1
 [Sulfuras, Hand of Ragnaros,-1,49] => Sulfuras, Hand of Ragnaros, -1, 49
+[Conjured,0,0] => Conjured, -1, 0
+[Conjured,0,1] => Conjured, -1, 0
+[Conjured,0,49] => Conjured, -1, 45
+[Conjured,10,0] => Conjured, 9, 0
+[Conjured,10,1] => Conjured, 9, 0
+[Conjured,10,49] => Conjured, 9, 47
+[Conjured,5,0] => Conjured, 4, 0
+[Conjured,5,1] => Conjured, 4, 0
+[Conjured,5,49] => Conjured, 4, 47
+[Conjured,-1,0] => Conjured, -2, 0
+[Conjured,-1,1] => Conjured, -2, 0
+[Conjured,-1,49] => Conjured, -2, 45
