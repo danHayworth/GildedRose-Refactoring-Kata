@@ -21,7 +21,7 @@ namespace csharp.Tests
             IList<Item> items = new List<Item>(Program.Items);
             GildedRose app = new GildedRose(items);
             app.UpdateQuality();
-            Approvals.VerifyAll<Item>(items, label: "");           
+            Approvals.VerifyAll(items, label: "");           
         }
 
         [TestMethod()]
