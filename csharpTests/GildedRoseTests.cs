@@ -26,9 +26,9 @@ namespace csharp.Tests
         {
             CombinationApprovals.VerifyAllCombinations(
                 getStringItem,
-                new string[] { "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "+5 Dexterity Vest", "Elixir of the Mongoose" },
-                new int[] {-1, 0, 11 },
-                new int[] {0, 1, 49, 50 }
+                new string[] { "foo" },
+                new int[] {0 },
+                new int[] {0}
                 );
         }
         private string getStringItem(string name, int sellIn, int quality)
