@@ -26,8 +26,7 @@ namespace csharp
         {
             // changing the if statements to a switch case scenario
             switch (item.Name)
-            {
-               
+            {              
                 case "Aged Brie":
 
                     if (item.Quality < 50)
@@ -77,8 +76,6 @@ namespace csharp
 
                 case "Sulfuras, Hand of Ragnaros":
 
-                    item.SellIn = item.SellIn;
-                    item.Quality = item.Quality;
                     break;
 
                 case "Conjured":
