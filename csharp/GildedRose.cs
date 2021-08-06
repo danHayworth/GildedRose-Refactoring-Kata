@@ -2,6 +2,10 @@
 
 namespace csharp
 {
+    // Dan Hayworth
+    // 07-Aug-2021
+
+
     public class GildedRose
     {
         IList<Item> Items;
