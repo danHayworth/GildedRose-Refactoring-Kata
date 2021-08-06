@@ -25,15 +25,15 @@ namespace csharp.Tests
         public void UpdateQualityTest()
         {
             CombinationApprovals.VerifyAllCombinations(
-                getNames,
-                new string[] { },
-                new int[] { },
-                new int[] { }
+                getStringItem,
+                new string[] { "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "+5 Dexterity Vest", "Elixir of the Mongoose" },
+                new int[] {-1, 0, 11 },
+                new int[] {0, 1, 49, 50 }
                 );
         }
-        private string getNames(string name, int sellIn, int quality)
+        private string getStringItem(string name, int sellIn, int quality)
         {           
-            IList<Item> newItems = new List<Item>() { new Item { Name = name, Quality = quality, SellIn = sellIn } };
+            IList<Item> newItems = new List<Item>() { new Item { Name = name, SellIn = sellIn, Quality = quality } };
             GildedRose gilded = new GildedRose(newItems);
             gilded.UpdateQuality();
             return newItems[0].ToString();
