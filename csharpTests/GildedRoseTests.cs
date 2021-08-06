@@ -24,7 +24,20 @@ namespace csharp.Tests
         [TestMethod()]
         public void UpdateQualityTest()
         {
-
+            CombinationApprovals.VerifyAllCombinations(
+                getNames,
+                new string[] { },
+                new int[] { },
+                new int[] { }
+                );
+        }
+        private string getNames(string name, int sellIn, int quality)
+        {           
+            IList<Item> newItems = new List<Item>() { new Item { Name = name, Quality = quality, SellIn = sellIn } };
+            GildedRose gilded = new GildedRose(newItems);
+            gilded.UpdateQuality();
+            return newItems[0].ToString();
+            
         }
     }
 }
