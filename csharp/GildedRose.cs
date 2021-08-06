@@ -24,7 +24,7 @@ namespace csharp
 
         private static void RefactoredUpdateQuality(Item item)
         {
-            // changing the if statements to a switch case scenario
+            // changing the if statements to a switch case scenario based on item name
             switch (item.Name)
             {              
                 case "Aged Brie":
